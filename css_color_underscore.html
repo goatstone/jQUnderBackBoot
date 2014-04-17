@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <title>backboneboot</title>
+</head>
+<body>
+
+<form id="query_form">
+    <input type="text" size="30" name="query" autocomplete="off">
+</form>
+
+<script type="text/template" class="template">
+    <h3>
+        <%
+            print(rc.getTitle())
+        %>
+    </h3>
+    <ul>
+        <%
+            print(rc.getColorQueryStringResult());
+        %>
+    </ul>
+
+    <% if ( rc.ifHasOne() ){ %>
+        <p style="font-size: 12px ;">
+            <em>Only one result!</em>
+        </p>
+    <% } %>
+
+</script>
+
+<div id="list_holder"></div>
+</body></html>
+
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/jquery/jquery.js"></script>
+
+<script src="js/goatstone/cssColors.js"></script>
+<script src="js/goatstone/CSS_ColorResultsTemplate.js"></script>
+<script src="js/goatstone/main.js"></script>
+
+
