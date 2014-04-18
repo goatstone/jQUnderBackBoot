@@ -4,7 +4,8 @@
 
 var G = (G) ? G : {};
 
-G.CSS_ColorResultsTemplate.setTemplate();
+G.cssColorResultsTemplate = new CSS_ColorResultsTemplate();
+G.cssColorResultsTemplate.setTemplate();
 
 var $queryInput = $("#query_form input[name=query]");
 
@@ -14,6 +15,7 @@ $queryInput
 
         var query = $(this).val();
 
-        G.CSS_ColorResultsTemplate.setTemplate(query);
+        G.cssColorResultsTemplate.setTemplate(query);
 
     });
+
