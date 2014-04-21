@@ -19,14 +19,13 @@
             'keyup #query': 'searchColors'
         },
         initialize: function () {
-            _.bindAll(this, 'render', 'addItem', 'appendItem'); // every function that uses 'this' as the current object should be in here
-
+            _.bindAll(this, 'render', 'addItem', 'resetDisplay');
             this.$queryInput = $(this.el).find('#query');
             this.$display = $(this.el).find('#color_names');
 
             this.collection = new Colors();
 //            this.collection.bind('add', this.appendItem); // collection event binder
-            this.collection.bind('set', this.appendItem   ); // collection event binder
+            this.collection.bind('reset', this.resetDisplay); // collection event binder
             this.render();
             this.$queryInput.focus();
         },
@@ -42,16 +41,22 @@
             var newArr = _.filter(G.cssColors, function (el) {
                 return new RegExp(query).test(el[0]);
             });
-            console.log("newArr");
-            console.log(newArr);
-//            this.collection.add(newArr);
-            this.collection.add(new Color()) ;
-            this.collection.set(newArr);
+            var arr2 = [];
+            newArr.forEach(function (e) {
+                arr2.push({name: e[0], hexVal: e[1]})
+            })
+
+            var nA = [
+                {name: "green", hexValue: "#0f0f"},
+                {name: "yellow", hexValue: "#0ff"}
+            ];
+//            this.collection.add(new Color()) ;
+//            this.collection.remove( Color);
+            console.log(this.collection)
+            this.collection.reset(arr2);
         },
         addItem: function () {
             var query = this.$queryInput.val();
-            console.log(query);
-
             var color = new Color();
             color.set({
                 name: "red",
@@ -60,11 +65,19 @@
             console.log(color.get("color"))
             this.collection.add(color); // add item to collection; view is updated via event 'add'
         },
-        appendItem: function (color) {
-            console.log(color.get("appendItem"))
-            this.$display.append("<li>" + color.get("name") + "</li>");
+        resetDisplay: function () {
+            this.render();
+            self = this;
+//            console.log(" - - -  - ")
+//            console.log(this.$display)
+            $('#color_names').html("");
+            _(this.collection.models).each(function (item) { // in case collection is not empty
+                this.$display.append('<div style="background-color:' + item.get("name") + '">'
+                    + item.get("name") + "</div>" );
+
+            }, this);
         }
     });
 
-    var listView = new ColorView();
+    var colorView = new ColorView();
 })(jQuery);
