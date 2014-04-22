@@ -1,0 +1,23 @@
+
+#search_color{
+    position: absolute;
+    top:20px;
+    left: 20px;
+    background-color: #ccc;
+    opacity: .7;
+    padding: 25px;
+    /*width: 200px;*/
+    text-align: center;
+    cursor: move;
+    border:1px solid #999;
+    border-radius:20px;
+}
+#search_color #query{
+    color: #fff;
+    padding: 5px;
+    background-color: #000;
+    opacity: 1;
+    filter:alpha(opacity=100) !important;
+    -moz-opacity: 1 !important;
+    opacity: 1 !important;
+}
