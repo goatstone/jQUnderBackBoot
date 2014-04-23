@@ -1,3 +1,6 @@
+/* css_color_bb.js
+ * */
+
 (function ($) {
 
     // search color results
@@ -13,7 +16,6 @@
     var Colors = Backbone.Collection.extend({
         model: Color
     });
-
     var ColorView = Backbone.View.extend({
         el: $('body'),
         events: {
@@ -26,8 +28,11 @@
         isDragging: false,
         xOffSet: 0,
         yOffSet: 0,
+        onResize: function () {
+            this.render();
+        },
         initialize: function () {
-            _.bindAll(this, 'render');
+            _.bindAll(this, 'render', "onMouseOut" ,"onMouseUp" ,"onMouseDown", "onMove", "searchColors");
 
             this.$queryInput = $(this.el).find('#query');
             this.$display = $('#color_names');
@@ -47,14 +52,14 @@
 
         },
         onMouseDown: function (e) {
-             this.isDragging = true;
+            this.isDragging = true;
             var yOffSet = 0;
             var offSetDiv = this.$queryPanel.offset();
             this.xOffSet = e.clientX - offSetDiv.left;
             this.yOffSet = e.clientY - offSetDiv.top;
         },
         onMove: function (e) {
-             if (this.isDragging) {
+            if (this.isDragging) {
                 var offSet = 20;
                 var xOffSet = 0;
                 this.$queryPanel.css({"left": e.clientX - this.xOffSet });
@@ -93,6 +98,7 @@
                 var top = 0, left = 0;
                 left = wInc * (j);
                 top = hInc * (k);
+
                 divEl.css(
                     {
                         "background-color": color.get("name"),
@@ -127,6 +133,12 @@
         }
     });
 
-    var colorView = new ColorView();
+    $(window).resize(function () {
+        colorView.onResize();
+    })
+
+    colorView = new ColorView();
 
 })(jQuery);
+
+var colorView;
