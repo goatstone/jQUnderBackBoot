@@ -1,3 +1,9 @@
+/*
+ * ElementView.js
+ * */
+
+var G = (G) ? G : {};
+
 (function ($) {
     var Element = Backbone.Model.extend({
         defaults: {
@@ -19,7 +25,7 @@
             console.log("ElementView : onClick")
             console.log(this.model.get("name"));
             console.log(this.model.get("tag"));
-            G.elmConfig.setElm("tag",this.model.get("tag"))
+            G.elmConfig.setElm("tag", this.model.get("tag"))
             console.log(G.elmConfig.getTag());
 
         },
@@ -47,7 +53,7 @@
             this.collection = new Elements();
             // this.collection.bind('add', this.appendItem); // collection event binder
             //            this.collection.bind('reset', this.render); // collection event binder
-            this.collection.reset(jsonHTML_Elms);
+            this.collection.reset(G.jsonHTML_Elms);
             this.render();
         },
         render: function () {
@@ -77,6 +83,8 @@
         }
     });
 
-    var elementsView = new ElementsView();
+//    var elementsView = new ElementsView();
+    G.ElementsView = ElementsView;
 
-})(jQuery);
+
+})(jQuery, G);

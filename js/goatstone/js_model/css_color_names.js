@@ -1,8 +1,9 @@
 /*
 * css_color_names.js
 * */
+var G = (G) ? G : {};
 
-var css_colors_names = [
+G.css_colors_names = [
     {"name": "aliceblue", "r": "240", "g": "248", "b": "255"},
     {"name": "antiquewhite", "r": "250", "g": "235", "b": "215"},
     {"name": "aqua", "r": "0", "g": "255", "b": "255"},
