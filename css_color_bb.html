@@ -9,15 +9,33 @@
 <div id="color_names">
 </div>
 
+<div id="main_display">
+xxx
+</div>
+
 <div id="search_color">
 
     <form>
+        <input type="radio" name="selection_mode" value="elements">
+        <input type="radio" name="selection_mode" value="props">
+        <input type="radio" name="selection_mode" value="vals" checked="true">
+        <br />
         <input  id="query" type="text" size="20" autocomplete="off">
     </form>
       <div id="message"></div>
 
 </div>
 
+<div id="elm_config">
+<ul>
+    <li>element</li>
+</ul>
+    <form>
+        <input type="radio" name="selection_mode" value="elements">
+     </form>
+    <div></div>
+
+</div>
 
 </body>
 </html>
@@ -42,7 +60,11 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>-->
+<script src="js/goatstone/ElmConfig.js"></script>
+<!--<script src="js/goatstone/ElmConfigView.js"></script>-->
 
 <script src="js/goatstone/js_model/css_color_names.js"></script>
+<script src="js/goatstone/js_model/html_elements.js"></script>
+<script src="js/goatstone/bb_element_view.js"></script>
 <script src="js/goatstone/css_color_bb.js"></script>
 
