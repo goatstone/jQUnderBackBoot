@@ -15,9 +15,9 @@
     });
 
     var ColorView = Backbone.View.extend({
-        el: $('#search_color'),
+        el: $('body'),
         events: {
-            'mousedown': 'onDrag',
+            'mousedown': 'onMouseDown',
             'mousemove': 'onMove',
             'mouseup': 'onMouseUp',
             'mouseout': 'onMouseOut',
@@ -26,9 +26,21 @@
         isDragging: false,
         xOffSet: 0,
         yOffSet: 0,
+        initialize: function () {
+            _.bindAll(this, 'render' );
+
+            this.$queryInput = $(this.el).find('#query');
+            this.$display = $('#color_names');
+            this.$queryPanel = $("#search_color");
+
+            this.collection = new Colors();
+            this.collection.bind('reset', this.render); // collection event binder
+            this.collection.reset(css_colors_names);
+            this.$queryInput.focus();
+        },
         onMouseOut: function(){
             console.log("on onMouseOut");
-            this.isDragging = false;
+            //this.isDragging = false;
             this.$queryInput.focus();
         },
         onMouseUp: function(){
@@ -37,11 +49,11 @@
             this.$queryInput.focus();
 
         },
-        onDrag : function(e){
-            console.log("on drag")
+        onMouseDown : function(e){
+            console.log("onMouseDown")
             this.isDragging = true;
             var yOffSet = 0;
-            var offSetDiv= $(this.el).offset();
+            var offSetDiv= this.$queryPanel.offset();
             this.xOffSet =   e.clientX -offSetDiv.left ;
             this.yOffSet =   e.clientY -offSetDiv.top ;
             console.log(this.offSetDiv);
@@ -49,7 +61,7 @@
 //            console.log(this.xOffSet);
         },
         onMove : function(e){
-//            console.log("on move");
+            console.log("on move");
 //            console.log(e.offsetX);
             if(this.isDragging){
                 var offSet = 20;
@@ -59,22 +71,11 @@
                 console.log(e.clientX);
 
 //                $(this.el).css({"top": e.clientY + offSet });
-                $(this.el).css({"left": e.clientX - this.xOffSet });
-                $(this.el).css({"top": e.clientY - this.yOffSet });
+                this.$queryPanel.css({"left": e.clientX - this.xOffSet });
+                this.$queryPanel.css({"top": e.clientY - this.yOffSet });
 
             }
             //this.isDragging = truel;
-        },
-        initialize: function () {
-            _.bindAll(this, 'render' );
-
-            this.$queryInput = $(this.el).find('#query');
-            this.$display = $('#color_names');
-
-            this.collection = new Colors();
-            this.collection.bind('reset', this.render); // collection event binder
-            this.collection.reset(css_colors_names);
-            this.$queryInput.focus();
         },
         render: function () {
              var $this = this;
@@ -82,7 +83,14 @@
 
             _(this.collection.models).each(function (color) { // in case collection is not empty
                 var divEl = $("<div>");
-                divEl.css ({"background-color":color.get("name") });
+                divEl.css (
+                    {
+                        "background-color":color.get("name"),
+                        "left":200,
+                        "right":200,
+                        "width":20,
+                        "height":20
+                });
                 divEl.text( color.get("name") )
                 $this.$display.append(divEl);
             }, this);
