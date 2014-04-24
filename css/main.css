@@ -1,4 +1,7 @@
-
+#main_display{
+     background-color: #f00;
+    width: 100%;
+}
 #search_color {
     position: absolute;
     top: 120px;
