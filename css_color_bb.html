@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,27 +16,39 @@
         <input type="radio" name="selection_mode" value="elements">
         <input type="radio" name="selection_mode" value="props">
         <input type="radio" name="selection_mode" value="vals" checked="true">
-        <br />
-        <input  id="query" type="text" size="20" autocomplete="off">
+        <br/>
+        <input id="query" type="text" size="20" autocomplete="off">
     </form>
-      <div id="message"></div>
+    <div id="message"></div>
 
 </div>
 
-<div id="elm_config">
-<ul>
-    <li>element</li>
-</ul>
-    <form>
-        <input type="radio" name="selection_mode" value="elements">
-     </form>
-    <div></div>
+<!--<div id="elm_config">-->
+    <!--<ul>-->
+        <!--<li>element</li>-->
+    <!--</ul>-->
+    <!--<form>-->
+        <!--<input type="radio" name="selection_mode" value="elements">-->
+    <!--</form>-->
+    <!--<div></div>-->
 
-</div>
+<!--</div>-->
 
 <div id="item_view">item view</div>
 
-<link href="css/main.css" rel="stylesheet" />
+<div id="search_panel_view">
+    <form>
+        <input type="radio" name="selection_mode" value="elements">
+        <input type="radio" name="selection_mode" value="props">
+        <input type="radio" name="selection_mode" value="vals" checked="true">
+        <br/>
+        <input id="q" type="text" size="20" autocomplete="off">
+    </form>
+    <div id="m" class="message"></div>
+    <div id="spv_content"  class="message"></div>
+</div>
+
+<link href="css/main.css" rel="stylesheet"/>
 
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.js"></script>-->
 <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
@@ -66,6 +77,8 @@
 <!--<script src="js/goatstone/ElmConfig.js"></script>-->
 <!--<script src="js/goatstone/ElmConfigView.js"></script>-->
 <script src="js/goatstone/MainView.js"></script>
+<script src="js/goatstone/views/SearchPanelView.js"></script>
+<script src="js/goatstone/views/ItemView.js"></script>
 <script src="js/goatstone/ElementView.js"></script>
 <script src="js/goatstone/ColorView.js"></script>
 
