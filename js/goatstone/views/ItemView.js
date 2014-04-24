@@ -19,10 +19,6 @@ var G = (G) ? G : {};
                 $this.render();
             })
             var padding = 40;
-//            var newX = $(window).width() - ( $(this.el).width() + parseInt($(this.el).css("padding-right"), 10)  );
-//            var newY = $(window).height() - ( $(this.el).height() + parseInt($(this.el).css("padding-top"), 10)  );
-//            newX = newX - 40; // padding
-//            newY = newY - 40; // padding
             this.x = $(window).width() - ( $(this.el).width() + parseInt($(this.el).css("padding-right"), 10) + padding );
             this.y = $(window).height() - ( $(this.el).height() + parseInt($(this.el).css("padding-top"), 10) + padding  );
         },

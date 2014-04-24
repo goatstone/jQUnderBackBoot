@@ -27,8 +27,13 @@ var G = (G) ? G : {};
             this.$itemView = new G.ItemView({model: this.model});
             this.$searchPanelView = new G.SearchPanelView({model: this.model});
 
+//            var elementView = new G.ElementView();
+            var element = new G.Element();
+            this.$elementViews = new G.ElementViews({model:element});
+
             $(this.el).append(this.$itemView.render().el);
             $(this.el).append(this.$searchPanelView.render().el);
+            $(this.el).append(this.$elementViews.render().el);
 
         },
         onMouseDownSearchPanelView: function (e) {
