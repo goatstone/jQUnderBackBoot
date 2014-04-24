@@ -12,8 +12,8 @@ var G = (G) ? G : {};
             'click input[name=selection_mode]': 'selectMode',
             'click .set_it': 'setIt'
         },
-        x: 100,
-        y: 100,
+        x: 10,
+        y: 10,
         offSetX: 0,
         offSetY: 0,
         initialize: function () {
