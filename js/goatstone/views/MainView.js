@@ -13,9 +13,10 @@ var G = (G) ? G : {};
             'mousemove': 'onMove',
             'mouseup': 'onMouseUp'
         },
-        isDragging: false,
         selectedView: null,
         initialize: function () {
+
+            console.log(this.model.get("name"));
 
             _.bindAll(this, 'render', "onMouseUp",
                 "onMove", "onMouseDownItemView", "onMouseDownSearchPanelView");
@@ -23,13 +24,8 @@ var G = (G) ? G : {};
             this.$display = $('#main_display');
             this.$display.height($(document).height());
 
-            this.$itemView = new G.ItemView({
-                model: {name: "Item View"}
-            });
-
-            this.$searchPanelView = new G.SearchPanelView({
-                model: {name: "Search Panel"}
-            });
+            this.$itemView = new G.ItemView({model: this.model});
+            this.$searchPanelView = new G.SearchPanelView({model: this.model});
 
             $(this.el).append(this.$itemView.render().el);
             $(this.el).append(this.$searchPanelView.render().el);
@@ -38,7 +34,6 @@ var G = (G) ? G : {};
         onMouseDownSearchPanelView: function (e) {
             this.selectedView = this.$searchPanelView;
             this.selectedView.setOffset({x: e.clientX, y: e.clientY});
-
         },
         onMouseDownItemView: function (e) {
             this.selectedView = this.$itemView;
@@ -48,7 +43,6 @@ var G = (G) ? G : {};
             this.selectedView = null;
         },
         onMove: function (e) {
-
             if (this.selectedView != null) {
                 this.selectedView.move(e);
             }

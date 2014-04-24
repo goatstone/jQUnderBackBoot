@@ -8,12 +8,39 @@ var G = (G) ? G : {};
     var SearchPanelView = Backbone.View.extend({
         el: $('#search_panel_view'),
         content: $('#spv_content'),
+        events: {
+            'click input[name=selection_mode]': 'selectMode',
+            'click .set_it': 'setIt'
+        },
         x: 100,
         y: 100,
         offSetX: 0,
         offSetY: 0,
         initialize: function () {
-            _.bindAll(this, 'render', 'move', 'setOffset');
+            var $this = this;
+            _.bindAll(this, 'render', 'move', 'setOffset', 'setIt');
+
+            this.$queryInput = $(this.el).find('#q');
+
+            this.model.bind('change', function () {
+                $this.render();
+            })
+        },
+        setIt: function () {
+            switch (this.model.get("selectionMode")) {
+                case "element":
+                    this.model.set("element", this.$queryInput.val())
+                    break;
+                case "property":
+                    this.model.set("property", this.$queryInput.val())
+                    break;
+                case "value":
+                    this.model.set("value", this.$queryInput.val())
+                    break;
+            }
+        },
+        selectMode: function (e) {
+            this.model.set("selectionMode", e.target.value);
         },
         setOffset: function (offSets) {
             this.offSetX = offSets.x - this.x;
@@ -26,7 +53,14 @@ var G = (G) ? G : {};
         },
         render: function () {
             $(this.el).css({ top: this.y, left: this.x});
-            $(this.content).html(this.model.name);
+
+            var str =
+                "Selection Mode: " + this.model.get("selectionMode") + "<br> " +
+                "Element: " + this.model.get("element") + "<br> " +
+                "Property: " + this.model.get("property") + "<br> " +
+                "Value: " + this.model.get("value") + "<br> ";
+
+            $(this.content).html(str);
             return this;
         }
     });

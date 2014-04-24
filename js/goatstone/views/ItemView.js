@@ -13,7 +13,11 @@ var G = (G) ? G : {};
         offSetX: 0,
         offSetY: 0,
         initialize: function () {
+            $this = this;
             _.bindAll(this, 'render', 'move', 'setOffset');
+            this.model.bind('change', function () {
+                $this.render();
+            })
         },
         setOffset: function (offSets) {
             this.offSetX = offSets.x - this.x;
@@ -25,8 +29,15 @@ var G = (G) ? G : {};
             this.render();
         },
         render: function () {
-            $(this.el).html('<span>' + this.model.name + '</span>')
-                .css({ top: this.y, left: this.x});
+            var str =
+                "Selection Mode: "+this.model.get("selectionMode") + "<br> " +
+                    "Element: "+this.model.get("element") + "<br> " +
+                    "Property: "+this.model.get("property") + "<br> " +
+                    "Value: "+this.model.get("value") + "<br> " ;
+
+                this.model.get("element") ;
+                $(this.el).html('<span>' + str + '</span>')
+                    .css({ top: this.y, left: this.x});
             return this;
         }
     });

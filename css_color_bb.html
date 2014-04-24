@@ -14,15 +14,18 @@
 
 <div id="search_panel_view">
     <form>
-        <input type="radio" name="selection_mode" value="elements">
-        <input type="radio" name="selection_mode" value="props">
-        <input type="radio" name="selection_mode" value="vals" checked="true">
+        <input type="radio" name="selection_mode" value="element" checked="true">
+        <input type="radio" name="selection_mode" value="property">
+        <input type="radio" name="selection_mode" value="value">
         <br/>
         <input id="q" type="text" size="20" autocomplete="off">
+        <br/>
+        <input type="button" class="set_it" value="Set It" >
     </form>
+    <br>
     <div id="m" class="message"></div>
-    <div id="spv_content"  class="message"></div>
-</div>
+     <span id="spv_content"  class="message" ></span>
+  </div>
 
 <link href="css/main.css" rel="stylesheet"/>
 
