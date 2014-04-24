@@ -1,8 +1,8 @@
 /*
-* ItemView.js
-* */
+ * ItemView.js
+ * */
 
- var G = (G) ? G : {};
+var G = (G) ? G : {};
 
 (function ($) {
 
@@ -20,7 +20,6 @@
             this.offSetY = offSets.y - this.y;
         },
         move: function (e) {
-            console.log("item view move")
             this.x = e.clientX - this.offSetX;
             this.y = e.clientY - this.offSetY;
             this.render();
@@ -32,7 +31,6 @@
         }
     });
 
-//    G.colorView = new ColorView();
     G.ItemView = ItemView;
 
 })(jQuery, G);

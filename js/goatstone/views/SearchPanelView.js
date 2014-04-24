@@ -1,4 +1,4 @@
-/* css_color_bb.js
+/* SearchPanelView.js
  * */
 
 var G = (G) ? G : {};
@@ -20,21 +20,17 @@ var G = (G) ? G : {};
             this.offSetY = offSets.y - this.y;
         },
         move: function (e) {
-            console.log("item view move")
             this.x = e.clientX - this.offSetX;
             this.y = e.clientY - this.offSetY;
             this.render();
         },
         render: function () {
-//            $(this.el).html('<span>' + this.model.name + '</span>')
-//                .css({ top: this.y, left: this.x});
             $(this.el).css({ top: this.y, left: this.x});
             $(this.content).html(this.model.name);
             return this;
         }
     });
 
-//    G.colorView = new ColorView();
     G.SearchPanelView = SearchPanelView;
 
 })(jQuery, G);
