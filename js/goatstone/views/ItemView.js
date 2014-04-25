@@ -1,5 +1,5 @@
 /*
- * ItemView.js
+ * ItemView.js // SelectedItems
  * */
 
 var G = (G) ? G : {};

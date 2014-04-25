@@ -8,25 +8,31 @@ body {
 div {
     position: absolute;
 }
-#elements_view{
+
+#elements_view {
     background-color: #99f;
+    cursor: move;
+
     width: 200px;
-    min-height: 100px;
     border-radius: 20px;
     padding: 15px 15px 25px 15px;
-    top: 200px;
-    left: 200px;
-
+    top: 250px;
+    left: 10px;
+    opacity: .9;
+    -moz-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
 }
+
 #main_display {
-    background-color: #f00;
+    background-color: #ccc;
     width: 100%;
 }
 
 #search_panel_view {
     text-align: center;
     cursor: move;
-    border: 1px solid #999;
+    /*border: 1px solid #999;*/
     border-radius: 20px;
     padding: 15px 15px 25px 15px;
     background-color: #aaa;
@@ -35,7 +41,9 @@ div {
     /*width: 200px;*/
     /*min-height: 80px;*/
     opacity: .9;
-
+    -moz-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
 }
 
 #search_panel_view .set_it {
@@ -55,7 +63,7 @@ div {
 
 #item_view {
     cursor: move;
-    border: 1px solid #00f;
+    /*border: 1px solid #00f;*/
     border-radius: 20px;
     padding: 15px 15px 25px 15px;
     background-color: #aac;
@@ -64,6 +72,10 @@ div {
     width: 200px;
     min-height: 100px;
     opacity: .9;
+    -moz-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+
 }
 
 #search_color {

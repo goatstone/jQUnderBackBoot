@@ -6,6 +6,9 @@ var G = (G) ? G : {};
 
 (function ($) {
 
+    // gets set by arg from MainView
+    var elementConfigModel;
+
     var elmJSON = [
         { name: 'div',
             tag: '<div>'},
@@ -31,18 +34,17 @@ var G = (G) ? G : {};
     });
 
     var ElementView = Backbone.View.extend({
-        tagName: 'li',
+        tagName: 'button',
         events: {
             'click ': 'onClick'
         },
         initialize: function () {
             _.bindAll(this, 'render', 'onClick');
+
         },
         onClick: function (e) {
-            console.log("ElementView : onClick")
-            console.log(this.model.get("name"));
-            console.log(this.model.get("tag"));
-
+            elementConfigModel.set("element", this.model.get("name"));
+            return false;
         },
         render: function () {
             $(this.el).html(this.model.get('name'));
@@ -51,41 +53,44 @@ var G = (G) ? G : {};
     });
 
     var ElementsView = Backbone.View.extend({
-        el: $('#elements_view'),   //elements_view
-        x: 300,
-        y: 200,
+        el: $('#elements_view'),
+        x: 20,
+        y: 220,
         offSetX: 0,
         offSetY: 0,
         initialize: function () {
             $this = this;
-            _.bindAll(this, 'render');
-            console.log(this)
+            _.bindAll(this, 'render', 'setOffset', 'move');
+            this.model.set("element", "A new name....");
+        },
+        setOffset: function (offSets) {
+            this.offSetX = offSets.x - this.x;
+            this.offSetY = offSets.y - this.y;
+        },
+        move: function (e) {
+            this.x = e.clientX - this.offSetX;
+            this.y = e.clientY - this.offSetY;
+            this.render();
         },
         render: function () {
             var $this = this;
-            console.log("render elementview")
-            var str = "element views" + this.collection.models[0].get("name");
-            _(this.collection.models).each(function (e) { // in case collection is not empty
-//                console.log(e.get("name"));
+            var str = "";
+            $($this.el).html("");
+            _(this.collection.models).each(function (e) {
                 var elmv = new ElementView({model: e});
                 $($this.el).append(elmv.render().el)
-//                $($this.el).append("x x xx x x");
-//                str += e.get("name") + "<br>";
             });
-            //                        + this.model.get("name")
-            $(this.el).append('<br>aa<span>' + str + '</span>');
             $(this.el).css({ top: this.y, left: this.x});
 
             return this;
         }
     });
 
-//    G.ElementView = ElementView;
-    G.getElementsView = function () {
-        var e = new Element();
+    G.getElementsView = function (elementConfigModelArg) {
+
+        elementConfigModel = elementConfigModelArg;
         var es = new Elements(elmJSON);
-        es.add(e);
-        return new ElementsView({collection: es});
+        return new ElementsView({"collection": es, "model": elementConfigModel});
 
     }
 

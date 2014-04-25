@@ -8,7 +8,7 @@ var G = (G) ? G : {};
 
 $('document').ready(function () {
 
-    var Item = Backbone.Model.extend({
+    var ElementConfigModel = Backbone.Model.extend({
         defaults: {
             name: "Shared Info",
             selectionMode: "element",
@@ -19,15 +19,15 @@ $('document').ready(function () {
     });
 
     var List = Backbone.Collection.extend({
-        model: Item
+        model: ElementConfigModel
     });
 
-    var item1 = new Item();
-    item1.set("name", "G Model !!!")
-    item1.bind('change', function () {
+    var elementConfigModel = new ElementConfigModel();
+    elementConfigModel.set("name", "G Model !!!")
+    elementConfigModel.bind('change', function () {
         console.log("G model changed !!!!!! ")
     })
 
-    var mainView = new G.MainView({model:item1});
+    var mainView = new G.MainView({model:elementConfigModel,a:2});
 
 });
