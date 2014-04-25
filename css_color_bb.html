@@ -6,11 +6,14 @@
 </head>
 <body id="body">
 
+
 <div id="main_display"></div>
 
 <div id="color_names"></div>
 
-<div id="item_view"><div class="content"></div></div>
+<div id="item_view">
+    <div class="content"></div>
+</div>
 
 <div id="elements_view"></div>
 
@@ -22,12 +25,25 @@
         <br/>
         <input id="q" type="text" size="20" autocomplete="off">
         <br/>
-        <input type="button" class="set_it" value="Set It" >
+        <input type="button" class="set_it" value="Set It">
     </form>
     <br>
+
     <div id="m" class="message"></div>
-     <span id="spv_content"  class="message" ></span>
-  </div>
+    <span id="spv_content" class="message"></span>
+</div>
+
+<div id="html_el_view">
+
+    <div id="hev_content"></div>
+    <br/>
+
+    <form>
+        <textarea rows="4" cols="20">hello</textarea>
+
+    </form>
+    <button>Add to Page</button>
+</div>
 
 <link href="css/main.css" rel="stylesheet"/>
 
@@ -53,7 +69,7 @@
 <script src="js/goatstone/views/SearchPanelView.js"></script>
 <script src="js/goatstone/views/ItemView.js"></script>
 <script src="js/goatstone/views/ElementView.js"></script>
-<!--<script src="js/goatstone/views/ColorView.js"></script>-->
+<script src="js/goatstone/views/HTML_ElView.js"></script>
 
 </body>
 </html>

@@ -59,7 +59,7 @@ var G = (G) ? G : {};
         offSetX: 0,
         offSetY: 0,
         initialize: function () {
-            $this = this;
+            var $this = this;
             _.bindAll(this, 'render', 'setOffset', 'move');
             this.model.set("element", "A new name....");
         },

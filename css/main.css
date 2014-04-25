@@ -9,10 +9,40 @@ div {
     position: absolute;
 }
 
+#html_el_view {
+    background-color: #99f;
+    cursor: move;
+    width: 200px;
+    border-radius: 20px;
+    padding: 15px 15px 25px 15px;
+    top: 50px;
+    left: 190px;
+    opacity: .9;
+    -moz-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+
+}
+#html_el_view button{
+    float: right;
+    margin: 3px 5px 5px 5px;
+}
+#html_el_view #hev_content{
+    background-color: #aaa;
+    width: inherit;
+
+}
+#html_el_view textarea{
+    background-color: #eee;
+    width: inherit;
+    margin: 15px;
+
+}
+
+
 #elements_view {
     background-color: #99f;
     cursor: move;
-
     width: 200px;
     border-radius: 20px;
     padding: 15px 15px 25px 15px;
