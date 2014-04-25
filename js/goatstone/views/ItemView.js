@@ -13,11 +13,14 @@ var G = (G) ? G : {};
         offSetX: 0,
         offSetY: 0,
         initialize: function () {
-            $this = this;
+            var $this = this;
             _.bindAll(this, 'render', 'move', 'setOffset');
+
             this.model.bind('change', function () {
+                console.log("iv model change...")
                 $this.render();
-            })
+            }) ;
+
             var padding = 40;
             this.x = $(window).width() - ( $(this.el).width() + parseInt($(this.el).css("padding-right"), 10) + padding );
             this.y = $(window).height() - ( $(this.el).height() + parseInt($(this.el).css("padding-top"), 10) + padding  );

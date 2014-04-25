@@ -14,6 +14,8 @@ div {
     min-height: 100px;
     border-radius: 20px;
     padding: 15px 15px 25px 15px;
+    top: 200px;
+    left: 200px;
 
 }
 #main_display {

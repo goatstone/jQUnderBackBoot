@@ -28,12 +28,12 @@ var G = (G) ? G : {};
             this.$searchPanelView = new G.SearchPanelView({model: this.model});
 
 //            var elementView = new G.ElementView();
-            var element = new G.Element();
-            this.$elementViews = new G.ElementViews({model:element});
+//            var element = new G.Element();       {model:element}
+            this.$elementView =  G.getElementsView();
 
             $(this.el).append(this.$itemView.render().el);
             $(this.el).append(this.$searchPanelView.render().el);
-            $(this.el).append(this.$elementViews.render().el);
+            $(this.el).append(this.$elementView.render().el);
 
         },
         onMouseDownSearchPanelView: function (e) {
