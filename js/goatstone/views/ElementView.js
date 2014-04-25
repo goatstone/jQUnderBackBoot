@@ -14,7 +14,7 @@ var G = (G) ? G : {};
             tag: '<div>'},
         { name: 'span',
             tag: '<span>'},
-        { name: 'paragraph',
+        { name: 'p',
             tag: '<p>'},
         { name: 'h1',
             tag: '<h1>'},
@@ -61,7 +61,6 @@ var G = (G) ? G : {};
         initialize: function () {
             var $this = this;
             _.bindAll(this, 'render', 'setOffset', 'move');
-            this.model.set("element", "A new name....");
         },
         setOffset: function (offSets) {
             this.offSetX = offSets.x - this.x;

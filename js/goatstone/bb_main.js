@@ -14,7 +14,15 @@ $('document').ready(function () {
             selectionMode: "element",
             element: "div",
             property: "color",
-            value: "red"
+            properties: [
+                {"color": "green"},
+                {"background-color": "blue"},
+                {"text": "hello elm"}
+            ],
+            properties:
+                {"color": "green", "backgroundColor": "red", "text": "hello el" },
+            value: "red",
+            text: "hello html"
         }
     });
 
@@ -28,6 +36,6 @@ $('document').ready(function () {
         console.log("G model changed !!!!!! ")
     })
 
-    var mainView = new G.MainView({model:elementConfigModel,a:2});
+    var mainView = new G.MainView({model: elementConfigModel, a: 2});
 
 });

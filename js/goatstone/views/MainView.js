@@ -28,7 +28,7 @@ var G = (G) ? G : {};
             this.$itemView = new G.ItemView({model: this.model});
             this.$searchPanelView = new G.SearchPanelView({model: this.model});
             this.$elementView = G.getElementsView(this.model); // Factory
-            this.$hTML_ElView = G.getHTML_ElView();
+            this.$hTML_ElView = G.getHTML_ElView(this.model);
 
             $(this.el).append(this.$itemView.render().el);
             $(this.el).append(this.$searchPanelView.render().el);
