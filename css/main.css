@@ -64,7 +64,7 @@ div {
     cursor: move;
     /*border: 1px solid #999;*/
     border-radius: 20px;
-    padding: 15px 15px 25px 15px;
+    padding: 10px 10px 15px 10px;
     background-color: #aaa;
     top: 100px;
     left: 100px;
@@ -79,6 +79,12 @@ div {
 #search_panel_view .set_it {
     float: right;
     margin: 3px 5px 5px 5px;
+    background-color: #eef;
+}
+
+#search_panel_view #user_input, select {
+    margin: 5px;
+    background-color: #eef;
 }
 
 #search_panel_view .message {

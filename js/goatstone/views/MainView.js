@@ -46,6 +46,9 @@ var G = (G) ? G : {};
             this.selectedView.setOffset({x: e.clientX, y: e.clientY});
         },
         onMouseDownSearchPanelView: function (e) {
+            console.log(e.target.getAttribute("id") )
+            // TODO : bug, on select option, View moves into corner, next line fixes this
+            if(e.target.getAttribute("id") === "prop_select")return;
             this.selectedView = this.$searchPanelView;
             this.selectedView.setOffset({x: e.clientX, y: e.clientY});
         },

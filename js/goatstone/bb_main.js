@@ -14,15 +14,16 @@ $('document').ready(function () {
             selectionMode: "element",
             element: "div",
             property: "color",
-            properties: [
-                {"color": "green"},
-                {"background-color": "blue"},
-                {"text": "hello elm"}
-            ],
+//            properties: [
+//                {"color": "green"},
+//                {"background-color": "blue"},
+//                {"text": "hello elm"}
+//            ],
             properties:
                 {"color": "green", "backgroundColor": "red", "text": "hello el" },
             value: "red",
-            text: "hello html"
+            text: "hello html",
+            dummyProp:0
         }
     });
 
@@ -38,4 +39,6 @@ $('document').ready(function () {
 
     var mainView = new G.MainView({model: elementConfigModel, a: 2});
 
+    // TODO : get focus this to work in the SearchPanelView
+    $( '#user_input').focus();
 });

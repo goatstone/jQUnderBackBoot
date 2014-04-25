@@ -21,6 +21,7 @@ var G = (G) ? G : {};
         offSetY: 0,
         pTag: $("<p>"),
         selectedTag: null,
+        selectedText:"",
         initialize: function () {
             _.bindAll(this, 'render', 'setOffset', 'move', 'addToPage', 'onModelChange', 'generateHTML_EL');
 
@@ -31,6 +32,7 @@ var G = (G) ? G : {};
         },
         onModelChange: function () {
             this.selectedTag = elementConfigModel.get("element");
+            this.selectedText = elementConfigModel.get("text");
             this.generateHTML_EL();
         },
         generateHTML_EL: function () {

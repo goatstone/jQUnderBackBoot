@@ -39,7 +39,10 @@ var G = (G) ? G : {};
                 "Selection Mode: " + this.model.get("selectionMode") + "<br> " +
                 "Element: " + this.model.get("element") + "<br> " +
                 "Property: " + this.model.get("property") + "<br> " +
-                "Value: " + this.model.get("value") + "<br> ";
+                "Value: " + this.model.get("value") + "<br> " +
+
+            "text . . .: " + this.model.get("properties").text + "<br> ";
+
 
             this.model.get("element");
             $(this.el).html('<span>' + str + '</span>')

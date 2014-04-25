@@ -19,11 +19,16 @@
 
 <div id="search_panel_view">
     <form>
-        <input type="radio" name="selection_mode" value="element" checked="true">
-        <input type="radio" name="selection_mode" value="property">
-        <input type="radio" name="selection_mode" value="value">
+        <select id="prop_select">
+            <option>Text</option>
+            <option>Color</option>
+            <option>Background Color</option>
+        </select>
+        <!--<input type="radio" name="selection_mode" value="element" checked="true">-->
+        <!--<input type="radio" name="selection_mode" value="property">-->
+        <!--<input type="radio" name="selection_mode" value="value">-->
         <br/>
-        <input id="q" type="text" size="20" autocomplete="off">
+        <input id="user_input" type="text" size="20" autocomplete="off">
         <br/>
         <input type="button" class="set_it" value="Set It">
     </form>
