@@ -2,9 +2,7 @@
  * HTML_ElView.js
  * */
 
-//var G = (G) ? G : {};
-//
-//(function ($) {
+
 define(["backbone" ], function (Backbone) {
 
     var elementConfigModel;
@@ -74,9 +72,3 @@ define(["backbone" ], function (Backbone) {
     });
    return HTML_ElView;
 });
-//    G.getHTML_ElView = function (elementConfigModelArg) {
-//        elementConfigModel = elementConfigModelArg;
-//        return new HTML_ElView();
-//    }
-
-//})(jQuery, G);

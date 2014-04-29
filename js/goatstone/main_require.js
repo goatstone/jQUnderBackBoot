@@ -7,8 +7,6 @@ require.config({
             "libs/jquery/jquery"],
         "underscore": "../../bower_components/underscore/underscore-min",
         "backbone": "../../bower_components/backbone/backbone-min"
-//        ,"mv": "../goatstone/views/MainView"
-
     },
     shim: {
         "backbone": {
@@ -49,9 +47,6 @@ require(['jquery', 'underscore', 'backbone', 'app'], function(jquery, _, Backbon
     elementConfigModel.bind('change', function () {
         console.log("G model changed !!!!!! ")
     })
-
-//    var mainView = new G.MainView({model: elementConfigModel, a: 2});
-
 
     new App({model: elementConfigModel});
 });

@@ -1,10 +1,6 @@
 /* SearchPanelView.js
  * */
 
-//var G = (G) ? G : {};
-//
-//(function ($) {
-
 define(["backbone" ], function (Backbone) {
 
     var SearchPanelView = Backbone.View.extend({
@@ -62,20 +58,8 @@ define(["backbone" ], function (Backbone) {
         },
         render: function () {
             $(this.el).css({ top: this.y, left: this.x});
-
-//            var str =
-//                "Selection Mode: " + this.model.get("selectionMode") + "<br> " +
-//                "Element: " + this.model.get("element") + "<br> " +
-//                "Property: " + this.model.get("property") + "<br> " +
-//                "Value: " + this.model.get("value") + "<br> ";
-
-//            $(this.content).html(str);
             return this;
         }
     });
     return SearchPanelView;
 });
-
-//    G.SearchPanelView = SearchPanelView;
-
-//})(jQuery, G);

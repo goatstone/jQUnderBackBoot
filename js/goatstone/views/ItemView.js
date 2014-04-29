@@ -2,9 +2,6 @@
  * ItemView.js // SelectedItems
  * */
 
-//var G = (G) ? G : {};
-
-//(function ($) {
 define(["backbone" ], function (Backbone) {
 
     var ItemView = Backbone.View.extend({
@@ -54,7 +51,3 @@ define(["backbone" ], function (Backbone) {
 
     return ItemView;
 });
-
-//    G.ItemView = ItemView;
-
-//})(jQuery, G);

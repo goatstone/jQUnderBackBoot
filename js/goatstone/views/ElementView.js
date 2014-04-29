@@ -2,9 +2,6 @@
  * ElementView.js
  * */
 
-//var G = (G) ? G : {};
-//
-//(function ($) {
 define(["backbone" ], function (Backbone) {
 
     // gets set by arg from MainView
@@ -88,12 +85,3 @@ define(["backbone" ], function (Backbone) {
     });
     return ElementsView
 });
-//    G.getElementsView = function (elementConfigModelArg) {
-//                                                          var elementConfigModel;
-//        elementConfigModel = elementConfigModelArg;
-//        var es = new Elements(elmJSON);
-//        return new ElementsView({"collection": es, "model": elementConfigModel});
-//
-//    }
-//
-//})(jQuery, G);

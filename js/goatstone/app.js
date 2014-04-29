@@ -47,18 +47,11 @@ define(["backbone", "views/ItemView", "views/SearchPanelView", "views/HTML_ElVie
                 var Elements = Backbone.Collection.extend({
                     model: Element
                 });
-//                var elementConfigModel;
-//                elementConfigModel = elementConfigModelArg;
                 var es = new Elements(elmJSON);
-//        return new ElementsView({"collection": es, "model": elementConfigModel});
                 this.$elementView = new ElementView({"collection": es, model: this.model});
 
-//                elementConfigModel = elementConfigModelArg;
-//        var es = new Elements(elmJSON);
-//        return new ElementsView({"collection": es, "model": elementConfigModel});
-//
                 this.$hTML_ElView = new HTML_ElView({model: this.model});
-//
+ 
                 $(this.el).append(this.$itemView.render().el);
                 $(this.el).append(this.$searchPanelView.render().el);
                 $(this.el).append(this.$elementView.render().el);
@@ -95,13 +88,6 @@ define(["backbone", "views/ItemView", "views/SearchPanelView", "views/HTML_ElVie
             }
         });
 
-//    G.MainView = MainView;
-
-//    var App = Backbone.View.extend({
-//        initialize: function(){
-//            console.log("it's working!");
-//        }
-//    });
         return App;
-//
+
     });
