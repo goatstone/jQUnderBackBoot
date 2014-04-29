@@ -1,9 +1,11 @@
 /* SearchPanelView.js
  * */
 
-var G = (G) ? G : {};
+//var G = (G) ? G : {};
+//
+//(function ($) {
 
-(function ($) {
+define(["backbone" ], function (Backbone) {
 
     var SearchPanelView = Backbone.View.extend({
         el: $('#search_panel_view'),
@@ -71,7 +73,9 @@ var G = (G) ? G : {};
             return this;
         }
     });
+    return SearchPanelView;
+});
 
-    G.SearchPanelView = SearchPanelView;
+//    G.SearchPanelView = SearchPanelView;
 
-})(jQuery, G);
+//})(jQuery, G);

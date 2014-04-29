@@ -2,9 +2,10 @@
  * HTML_ElView.js
  * */
 
-var G = (G) ? G : {};
-
-(function ($) {
+//var G = (G) ? G : {};
+//
+//(function ($) {
+define(["backbone" ], function (Backbone) {
 
     var elementConfigModel;
 
@@ -21,29 +22,29 @@ var G = (G) ? G : {};
         offSetY: 0,
         pTag: $("<p>"),
         selectedTag: null,
-        selectedText:"",
+        selectedText: "",
         initialize: function () {
             _.bindAll(this, 'render', 'setOffset', 'move', 'addToPage', 'onModelChange', 'generateHTML_EL');
 
-            elementConfigModel.bind("change", this.onModelChange);
-            console.log(elementConfigModel.get("element"))
+            this.model.bind("change", this.onModelChange);
+            console.log(this.model.get("element"))
             this.generateHTML_EL();
 
         },
         onModelChange: function () {
-            this.selectedTag = elementConfigModel.get("element");
-            this.selectedText = elementConfigModel.get("text");
+            this.selectedTag = this.model.get("element");
+            this.selectedText = this.model.get("text");
             this.generateHTML_EL();
         },
         generateHTML_EL: function () {
-            console.log(elementConfigModel.get("properties").backgroundColor);
+            console.log(this.model.get("properties").backgroundColor);
 
             var tag = "";
-            tag = $("<" + elementConfigModel.get("element") + ">");
-            tag.text(elementConfigModel.get("properties").text)
+            tag = $("<" + this.model.get("element") + ">");
+            tag.text(this.model.get("properties").text)
             tag.css({
-                "color": (elementConfigModel.get("properties").color),
-                "background-color": elementConfigModel.get("properties").backgroundColor,
+                "color": (this.model.get("properties").color),
+                "background-color": this.model.get("properties").backgroundColor,
                 "margin": "0"
             });
 
@@ -71,10 +72,11 @@ var G = (G) ? G : {};
             return this;
         }
     });
+   return HTML_ElView;
+});
+//    G.getHTML_ElView = function (elementConfigModelArg) {
+//        elementConfigModel = elementConfigModelArg;
+//        return new HTML_ElView();
+//    }
 
-    G.getHTML_ElView = function (elementConfigModelArg) {
-        elementConfigModel = elementConfigModelArg;
-        return new HTML_ElView();
-    }
-
-})(jQuery, G);
+//})(jQuery, G);

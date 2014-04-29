@@ -2,9 +2,10 @@
  * ElementView.js
  * */
 
-var G = (G) ? G : {};
-
-(function ($) {
+//var G = (G) ? G : {};
+//
+//(function ($) {
+define(["backbone" ], function (Backbone) {
 
     // gets set by arg from MainView
     var elementConfigModel;
@@ -61,6 +62,7 @@ var G = (G) ? G : {};
         initialize: function () {
             var $this = this;
             _.bindAll(this, 'render', 'setOffset', 'move');
+            elementConfigModel = this.model;
         },
         setOffset: function (offSets) {
             this.offSetX = offSets.x - this.x;
@@ -84,13 +86,14 @@ var G = (G) ? G : {};
             return this;
         }
     });
-
-    G.getElementsView = function (elementConfigModelArg) {
-
-        elementConfigModel = elementConfigModelArg;
-        var es = new Elements(elmJSON);
-        return new ElementsView({"collection": es, "model": elementConfigModel});
-
-    }
-
-})(jQuery, G);
+    return ElementsView
+});
+//    G.getElementsView = function (elementConfigModelArg) {
+//                                                          var elementConfigModel;
+//        elementConfigModel = elementConfigModelArg;
+//        var es = new Elements(elmJSON);
+//        return new ElementsView({"collection": es, "model": elementConfigModel});
+//
+//    }
+//
+//})(jQuery, G);

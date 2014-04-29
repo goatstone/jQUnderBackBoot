@@ -1,27 +1,28 @@
 {
-  "name": "backboneboot",
-  "version": "0.0.0",
-  "dependencies": {
-    "backbone": "~1.0.0",
-    "underscore": "~1.4.4",
-    "jquery": "~2.0.2"
-  },
-"homepage": "goatstone.com",
-  "authors": [
-    "goatstone goatdev@goatstone.com"
-  ],
-  "description": "A hello world for backbone bootstrap",
-  "main": "css_color_underscore.html",
-  "keywords": [
-    "hello"
-  ],
-  "license": "MIT",
-  "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ]
+    "name": "backboneboot",
+    "version": "0.0.0",
+    "dependencies": {
+        "backbone": "~1.0.0",
+        "underscore": "~1.4.4",
+        "jquery": "~2.0.2",
+        "requirejs": null
+    },
+    "homepage": "goatstone.com",
+    "authors": [
+        "goatstone goatdev@goatstone.com"
+    ],
+    "description": "A hello world for backbone bootstrap",
+    "main": "css_color_underscore.html",
+    "keywords": [
+        "hello world"
+    ],
+    "license": "MIT",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ]
 }

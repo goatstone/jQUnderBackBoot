@@ -2,9 +2,10 @@
  * ItemView.js // SelectedItems
  * */
 
-var G = (G) ? G : {};
+//var G = (G) ? G : {};
 
-(function ($) {
+//(function ($) {
+define(["backbone" ], function (Backbone) {
 
     var ItemView = Backbone.View.extend({
         el: $('#item_view'),
@@ -19,7 +20,7 @@ var G = (G) ? G : {};
             this.model.bind('change', function () {
                 console.log("iv model change...")
                 $this.render();
-            }) ;
+            });
 
             var padding = 40;
             this.x = $(window).width() - ( $(this.el).width() + parseInt($(this.el).css("padding-right"), 10) + padding );
@@ -41,7 +42,7 @@ var G = (G) ? G : {};
                 "Property: " + this.model.get("property") + "<br> " +
                 "Value: " + this.model.get("value") + "<br> " +
 
-            "text . . .: " + this.model.get("properties").text + "<br> ";
+                "text . . .: " + this.model.get("properties").text + "<br> ";
 
 
             this.model.get("element");
@@ -51,6 +52,9 @@ var G = (G) ? G : {};
         }
     });
 
-    G.ItemView = ItemView;
+    return ItemView;
+});
 
-})(jQuery, G);
+//    G.ItemView = ItemView;
+
+//})(jQuery, G);

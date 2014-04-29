@@ -1,9 +1,13 @@
 /* MainView.js
  * */
 
-var G = (G) ? G : {};
 
-(function ($) {
+// Start the main app logic.
+requirejs(['jquery', 'canvas', 'app/sub'],
+    function   ($,        canvas,   sub) {
+        //jQuery, canvas and the app/sub module are all
+        //loaded and can be used here now.
+//    });
 
     var MainView = Backbone.View.extend({
         el: $('body'),
@@ -37,7 +41,7 @@ var G = (G) ? G : {};
 
         },
         onMouseDownHTML_ElView: function(e){
-          console.log("onMouseDownHTML_ElView");
+            console.log("onMouseDownHTML_ElView");
             this.selectedView = this.$hTML_ElView;
             this.selectedView.setOffset({x: e.clientX, y: e.clientY});
         },
@@ -68,6 +72,14 @@ var G = (G) ? G : {};
 
     G.MainView = MainView;
 
-})(jQuery, G);
+    });
+
+
+//var G = (G) ? G : {};
+
+//(function ($) {
+
+
+//})(jQuery, G);
 
 

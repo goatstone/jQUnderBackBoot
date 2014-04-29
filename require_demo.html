@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Requirejs with Backbone example</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="css/main.css">
+    <script data-main="js/goatstone/main_require.js" src="bower_components/requirejs/require.js"></script>
+</head>
+<body>
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please
+    <a href="http://browsehappy.com/">upgrade your browser</a> or
+    <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+
+<div id="main_display"></div>
+
+<div id="color_names"></div>
+
+<div id="item_view">
+    <div class="content"></div>
+</div>
+
+<div id="elements_view"></div>
+
+<div id="search_panel_view">
+    <form>
+        <select id="prop_select">
+            <option>Text</option>
+            <option>Color</option>
+            <option>Background Color</option>
+        </select>
+        <br/>
+        <input id="user_input" type="text" size="20" autocomplete="off">
+        <br/>
+        <input type="button" class="set_it" value="Set It">
+    </form>
+    <br>
+
+    <div id="m" class="message"></div>
+    <span id="spv_content" class="message"></span>
+</div>
+
+<div id="html_el_view">
+
+    <div id="hev_content"></div>
+    <br/>
+
+    <form>
+        <textarea rows="4" cols="20">hello</textarea>
+
+    </form>
+    <button>Add to Page</button>
+</div>
+
+
+</body>
+</html>
