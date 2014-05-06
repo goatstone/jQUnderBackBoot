@@ -37,7 +37,7 @@ define(["backbone", "./views/ItemView", "./views/SearchPanelView", "./views/HTML
                         tag: '<h2>'},
                     { name: 'h3',
                         tag: '<h3>'}
-                ]
+                ];
                 var Element = Backbone.Model.extend({
                     defaults: {
                         name: 'paragraph',
@@ -68,9 +68,11 @@ define(["backbone", "./views/ItemView", "./views/SearchPanelView", "./views/HTML
                 this.selectedView.setOffset({x: e.clientX, y: e.clientY});
             },
             onMouseDownSearchPanelView: function (e) {
-                console.log(e.target.getAttribute("id"))
+                console.log(e.target.getAttribute("id"));
                 // TODO : bug, on select option, View moves into corner, next line fixes this
-                if (e.target.getAttribute("id") === "prop_select")return;
+                if (e.target.getAttribute("id") === "prop_select"){
+                    return;
+                }
                 this.selectedView = this.$searchPanelView;
                 this.selectedView.setOffset({x: e.clientX, y: e.clientY});
             },

@@ -15,7 +15,7 @@ define(["backbone" ], function (Backbone) {
             _.bindAll(this, 'render', 'move', 'setOffset');
 
             this.model.bind('change', function () {
-                console.log("iv model change...")
+                console.log("iv model change...");
                 $this.render();
             });
 

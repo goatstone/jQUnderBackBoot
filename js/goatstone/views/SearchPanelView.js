@@ -19,18 +19,18 @@ define(["backbone" ], function (Backbone) {
             _.bindAll(this, 'render', 'move', 'setOffset', 'setIt');
 
             this.$queryInput = $(this.el).find('#user_input');
-            this.$queryInput.css({"background-color": "red"})
+            this.$queryInput.css({"background-color": "red"});
 
         },
         setIt: function () {
             // set the value in the box to text, color, prop
-            if (this.$queryInput.val() != "") {
+            if (this.$queryInput.val() !== "") {
                 var a = this.model.get("properties");
                 a.text = this.$queryInput.val();
                 this.model.set("properties", a); // TODO this does not trigger the update
                 this.model.set("dummyProp", new Date()); // TODO : should not need this, ensure the change is triggered
             }
-            this.$queryInput.focus()
+            this.$queryInput.focus();
 
 //            switch (this.model.get("selectionMode")) {
 //                case "element":

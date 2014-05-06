@@ -25,7 +25,7 @@ define(["backbone" ], function (Backbone) {
             _.bindAll(this, 'render', 'setOffset', 'move', 'addToPage', 'onModelChange', 'generateHTML_EL');
 
             this.model.bind("change", this.onModelChange);
-            console.log(this.model.get("element"))
+            console.log(this.model.get("element"));
             this.generateHTML_EL();
 
         },
@@ -39,7 +39,7 @@ define(["backbone" ], function (Backbone) {
 
             var tag = "";
             tag = $("<" + this.model.get("element") + ">");
-            tag.text(this.model.get("properties").text)
+            tag.text(this.model.get("properties").text);
             tag.css({
                 "color": (this.model.get("properties").color),
                 "background-color": this.model.get("properties").backgroundColor,

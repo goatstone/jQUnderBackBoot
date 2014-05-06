@@ -20,7 +20,7 @@ define(["backbone" ], function (Backbone) {
             tag: '<h2>'},
         { name: 'h3',
             tag: '<h3>'}
-    ]
+    ];
     var Element = Backbone.Model.extend({
         defaults: {
             name: 'paragraph',
@@ -76,12 +76,12 @@ define(["backbone" ], function (Backbone) {
             $($this.el).html("");
             _(this.collection.models).each(function (e) {
                 var elmv = new ElementView({model: e});
-                $($this.el).append(elmv.render().el)
+                $($this.el).append(elmv.render().el);
             });
             $(this.el).css({ top: this.y, left: this.x});
 
             return this;
         }
     });
-    return ElementsView
+    return ElementsView;
 });
