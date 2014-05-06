@@ -6,7 +6,8 @@ require.config({
         "jquery": ["http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min",
             "libs/jquery/jquery"],
         "underscore": "../bower_components/underscore/underscore-min",
-        "backbone": "../bower_components/backbone/backbone-min"
+        "backbone": "../bower_components/backbone/backbone-min",
+        "element_config_model":"./goatstone/models/ElementConfig"
     },
     shim: {
         "backbone": {

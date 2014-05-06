@@ -1,5 +1,8 @@
-define(["backbone", "./views/ItemView", "./views/SearchPanelView", "./views/HTML_ElView", "./views/ElementView"],
-    function (Backbone, ItemView, SearchPanelView, HTML_ElView, ElementView) {
+define(["backbone", "./views/ItemView", "./views/SearchPanelView", "./views/HTML_ElView",
+        "./views/ElementView", "element_config_model"],
+    function (Backbone, ItemView, SearchPanelView, HTML_ElView, ElementView, ElementConfigModel) {
+
+        console.log(ElementConfigModel)
 
         var App = Backbone.View.extend({
             el: $('body'),
@@ -17,6 +20,13 @@ define(["backbone", "./views/ItemView", "./views/SearchPanelView", "./views/HTML
                 _.bindAll(this, 'render', "onMouseUp",
                     "onMove", "onMouseDownItemView", "onMouseDownSearchPanelView",
                     "onMouseDownElementsView", "onMouseDownHTML_ElView");
+
+                var elementConfigModel = new ElementConfigModel();
+                elementConfigModel.bind('change', function () {
+                    console.log("ecg app model changed !!!!!! ")
+                })
+                elementConfigModel.set("name", "G Model !!!")
+
 
                 this.$display = $('#main_display');
                 this.$display.height($(document).height());
