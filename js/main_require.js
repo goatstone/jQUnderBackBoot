@@ -5,8 +5,8 @@ require.config({
         //to load locally
         "jquery": ["http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min",
             "libs/jquery/jquery"],
-        "underscore": "../../bower_components/underscore/underscore-min",
-        "backbone": "../../bower_components/backbone/backbone-min"
+        "underscore": "../bower_components/underscore/underscore-min",
+        "backbone": "../bower_components/backbone/backbone-min"
     },
     shim: {
         "backbone": {
@@ -21,7 +21,7 @@ require.config({
 });
 //requiring the scripts in the first argument and then passing the library namespaces into a callback
 //you should be able to console log all of the callback arguments
-require(['jquery', 'underscore', 'backbone', 'app'], function(jquery, _, Backbone, App){
+require(['jquery', 'underscore', 'backbone', 'goatstone/app'], function(jquery, _, Backbone, App){
 
     //    console.log(G)
     var ElementConfigModel = Backbone.Model.extend({

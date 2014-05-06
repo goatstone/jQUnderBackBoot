@@ -10,7 +10,7 @@ var gulp = require('gulp'),
 
 gulp.task('default', function () {
 
-    return gulp.src('js/goatstone/*.js')
+    return gulp.src('js/goatstone/**/*.js')
         .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter('default'))
 //        .pipe(concat('gulp_test.js'))

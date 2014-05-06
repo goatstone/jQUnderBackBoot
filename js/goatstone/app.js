@@ -1,4 +1,4 @@
-define(["backbone", "views/ItemView", "views/SearchPanelView", "views/HTML_ElView", "views/ElementView"],
+define(["backbone", "./views/ItemView", "./views/SearchPanelView", "./views/HTML_ElView", "./views/ElementView"],
     function (Backbone, ItemView, SearchPanelView, HTML_ElView, ElementView) {
 
         var App = Backbone.View.extend({
