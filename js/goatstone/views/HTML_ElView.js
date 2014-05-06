@@ -2,10 +2,7 @@
  * HTML_ElView.js
  * */
 
-
-define(["backbone" ], function (Backbone) {
-
-    var elementConfigModel;
+define(["backbone", "element_config_model" ], function (Backbone,  elementConfigModel ) {
 
     var HTML_ElView = Backbone.View.extend({
         el: $('#html_el_view'),
@@ -24,25 +21,25 @@ define(["backbone" ], function (Backbone) {
         initialize: function () {
             _.bindAll(this, 'render', 'setOffset', 'move', 'addToPage', 'onModelChange', 'generateHTML_EL');
 
-            this.model.bind("change", this.onModelChange);
-            console.log(this.model.get("element"));
+            elementConfigModel.bind("change", this.onModelChange);
+            console.log(elementConfigModel.get("element"));
             this.generateHTML_EL();
 
         },
         onModelChange: function () {
-            this.selectedTag = this.model.get("element");
-            this.selectedText = this.model.get("text");
+            this.selectedTag = elementConfigModel.get("element");
+            this.selectedText = elementConfigModel.get("text");
             this.generateHTML_EL();
         },
         generateHTML_EL: function () {
-            console.log(this.model.get("properties").backgroundColor);
+            console.log(elementConfigModel.get("properties").backgroundColor);
 
             var tag = "";
-            tag = $("<" + this.model.get("element") + ">");
-            tag.text(this.model.get("properties").text);
+            tag = $("<" + elementConfigModel.get("element") + ">");
+            tag.text(elementConfigModel.get("properties").text);
             tag.css({
-                "color": (this.model.get("properties").color),
-                "background-color": this.model.get("properties").backgroundColor,
+                "color": (elementConfigModel.get("properties").color),
+                "background-color": elementConfigModel.get("properties").backgroundColor,
                 "margin": "0"
             });
 

@@ -1,8 +1,9 @@
 /*
- * ItemView.js // SelectedItems
+ * ElementConfig.js
  * */
 
 define(["backbone" ], function (Backbone) {
+
     var ElementConfigModel = Backbone.Model.extend({
         defaults: {
             name: "Shared Info",
@@ -16,6 +17,7 @@ define(["backbone" ], function (Backbone) {
         }
     });
 
+    var elementConfigModel = new ElementConfigModel();
 
-    return ElementConfigModel
+    return elementConfigModel;
 });

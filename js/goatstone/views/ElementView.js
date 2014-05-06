@@ -2,10 +2,9 @@
  * ElementView.js
  * */
 
-define(["backbone" ], function (Backbone) {
-
-    // gets set by arg from MainView
-    var elementConfigModel;
+define(["backbone", "element_config_model" ], function (Backbone, elementConfigModel) {
+//    console.log("ElementView");
+//    console.log(elementConfigModel);
 
     var elmJSON = [
         { name: 'div',
@@ -59,8 +58,7 @@ define(["backbone" ], function (Backbone) {
         initialize: function () {
             var $this = this;
             _.bindAll(this, 'render', 'setOffset', 'move');
-            elementConfigModel = this.model;
-        },
+         },
         setOffset: function (offSets) {
             this.offSetX = offSets.x - this.x;
             this.offSetY = offSets.y - this.y;

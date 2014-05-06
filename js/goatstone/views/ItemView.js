@@ -2,7 +2,7 @@
  * ItemView.js // SelectedItems
  * */
 
-define(["backbone" ], function (Backbone) {
+define(["backbone", "element_config_model" ], function (Backbone, elementConfigModel) {
 
     var ItemView = Backbone.View.extend({
         el: $('#item_view'),
@@ -14,8 +14,8 @@ define(["backbone" ], function (Backbone) {
             var $this = this;
             _.bindAll(this, 'render', 'move', 'setOffset');
 
-            this.model.bind('change', function () {
-                console.log("iv model change...");
+            elementConfigModel.bind('change', function () {
+                console.log("element_config_model model change...");
                 $this.render();
             });
 
@@ -34,15 +34,13 @@ define(["backbone" ], function (Backbone) {
         },
         render: function () {
             var str =
-                "Selection Mode: " + this.model.get("selectionMode") + "<br> " +
-                "Element: " + this.model.get("element") + "<br> " +
-                "Property: " + this.model.get("property") + "<br> " +
-                "Value: " + this.model.get("value") + "<br> " +
+                "Selection Mode: " + elementConfigModel.get("selectionMode") + "<br> " +
+                "Element: " + elementConfigModel.get("element") + "<br> " +
+                "Property: " + elementConfigModel.get("property") + "<br> " +
+                "Value: " + elementConfigModel.get("value") + "<br> " +
 
-                "text . . .: " + this.model.get("properties").text + "<br> ";
+                "text . . .: " + elementConfigModel.get("properties").text + "<br> ";
 
-
-            this.model.get("element");
             $(this.el).html('<span>' + str + '</span>')
                 .css({ top: this.y, left: this.x});
             return this;

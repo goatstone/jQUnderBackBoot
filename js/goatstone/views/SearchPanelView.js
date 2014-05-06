@@ -1,13 +1,12 @@
 /* SearchPanelView.js
  * */
 
-define(["backbone" ], function (Backbone) {
+define(["backbone",  "element_config_model" ], function (Backbone,  elementConfigModel ) {
 
     var SearchPanelView = Backbone.View.extend({
         el: $('#search_panel_view'),
         content: $('#spv_content'),
         events: {
-            // 'click input[name=selection_mode]': 'selectMode',
             'click .set_it': 'setIt'
         },
         x: 5,
@@ -25,27 +24,16 @@ define(["backbone" ], function (Backbone) {
         setIt: function () {
             // set the value in the box to text, color, prop
             if (this.$queryInput.val() !== "") {
-                var a = this.model.get("properties");
+                var a = elementConfigModel.get("properties");
                 a.text = this.$queryInput.val();
-                this.model.set("properties", a); // TODO this does not trigger the update
-                this.model.set("dummyProp", new Date()); // TODO : should not need this, ensure the change is triggered
+                elementConfigModel.set("properties", a); // TODO this does not trigger the update
+                elementConfigModel.set("dummyProp", new Date()); // TODO : should not need this, ensure the change is triggered
             }
             this.$queryInput.focus();
 
-//            switch (this.model.get("selectionMode")) {
-//                case "element":
-//                    this.model.set("element", this.$queryInput.val())
-//                    break;
-//                case "property":
-//                    this.model.set("property", this.$queryInput.val())
-//                    break;
-//                case "value":
-//                    this.model.set("value", this.$queryInput.val())
-//                    break;
-//            }
         },
         selectMode: function (e) {
-            this.model.set("selectionMode", e.target.value);
+            elementConfigModel.set("selectionMode", e.target.value);
         },
         setOffset: function (offSets) {
             this.offSetX = offSets.x - this.x;

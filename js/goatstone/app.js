@@ -1,8 +1,10 @@
+/*
+app.js
+* */
+
 define(["backbone", "./views/ItemView", "./views/SearchPanelView", "./views/HTML_ElView",
         "./views/ElementView", "element_config_model"],
-    function (Backbone, ItemView, SearchPanelView, HTML_ElView, ElementView, ElementConfigModel) {
-
-        console.log(ElementConfigModel)
+    function (Backbone, ItemView, SearchPanelView, HTML_ElView, ElementView, elementConfigModel) {
 
         var App = Backbone.View.extend({
             el: $('body'),
@@ -21,18 +23,17 @@ define(["backbone", "./views/ItemView", "./views/SearchPanelView", "./views/HTML
                     "onMove", "onMouseDownItemView", "onMouseDownSearchPanelView",
                     "onMouseDownElementsView", "onMouseDownHTML_ElView");
 
-                var elementConfigModel = new ElementConfigModel();
                 elementConfigModel.bind('change', function () {
-                    console.log("ecg app model changed !!!!!! ")
-                })
-                elementConfigModel.set("name", "G Model !!!")
+                    console.log("ecg app model changed !!!!!! ");
+                });
+                elementConfigModel.set("name", "G Model !!!");
 
 
                 this.$display = $('#main_display');
                 this.$display.height($(document).height());
 
-                this.$itemView = new ItemView({model: this.model});
-                this.$searchPanelView = new SearchPanelView({model: this.model});
+                this.$itemView = new ItemView( );
+                this.$searchPanelView = new SearchPanelView( );
 
                 var elmJSON = [
                     { name: 'div',
@@ -58,9 +59,9 @@ define(["backbone", "./views/ItemView", "./views/SearchPanelView", "./views/HTML
                     model: Element
                 });
                 var es = new Elements(elmJSON);
-                this.$elementView = new ElementView({"collection": es, model: this.model});
+                this.$elementView = new ElementView({"collection": es });
 
-                this.$hTML_ElView = new HTML_ElView({model: this.model});
+                this.$hTML_ElView = new HTML_ElView( );
  
                 $(this.el).append(this.$itemView.render().el);
                 $(this.el).append(this.$searchPanelView.render().el);

@@ -49,5 +49,5 @@ require(['jquery', 'underscore', 'backbone', 'goatstone/app'], function(jquery, 
         console.log("G model changed !!!!!! ")
     })
 
-    new App({model: elementConfigModel});
+    new App( );
 });
