@@ -59,7 +59,7 @@ div {
     width: 100%;
 }
 
-#search_panel_view {
+#selector_view {
     text-align: center;
     cursor: move;
     /*border: 1px solid #999;*/
@@ -76,18 +76,18 @@ div {
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
 }
 
-#search_panel_view .set_it {
+#selector_view .set_it {
     float: right;
     margin: 3px 5px 5px 5px;
     background-color: #eef;
 }
 
-#search_panel_view #user_input, select {
+#selector_view #user_input, select {
     margin: 5px;
     background-color: #eef;
 }
 
-#search_panel_view .message {
+#selector_view .message {
     max-width: 130px;
     /*margin: 5px;*/
     display: inline-block;

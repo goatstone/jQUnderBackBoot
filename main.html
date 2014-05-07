@@ -30,18 +30,28 @@
 
 <div id="elements_view"></div>
 
-<div id="search_panel_view">
+<div id="selector_view">
+
     <form>
-        <select id="prop_select">
-            <option>Text</option>
-            <option>Color</option>
-            <option>Background Color</option>
+        <select class="selector_modes">
+            <!--<option>Text</option>-->
+            <!--<option>Color</option>-->
+            <!--<option>Background Color</option>-->
         </select>
+
+         <select class="html_elements">
+         </select>
+
         <br/>
-        <input id="user_input" type="text" size="20" autocomplete="off">
+
+        <input class="user_input" type="text" size="20" autocomplete="off">
+
         <br/>
-        <input type="button" class="set_it" value="Set It">
+        <div class="selected_color"></div>
+
+        <button type="button" class="set_it" value="Set It">Set it!</button>
     </form>
+
     <br>
 
     <div id="m" class="message"></div>

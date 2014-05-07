@@ -2,7 +2,7 @@
 app.js
 * */
 
-define(["backbone", "./views/ItemView", "./views/SearchPanelView", "./views/HTML_ElView",
+define(["backbone", "./views/ItemView", "./views/SelectorView", "./views/HTML_ElView",
         "./views/ElementView", "element_config_model"],
     function (Backbone, ItemView, SearchPanelView, HTML_ElView, ElementView, elementConfigModel) {
 
@@ -33,7 +33,7 @@ define(["backbone", "./views/ItemView", "./views/SearchPanelView", "./views/HTML
                 this.$display.height($(document).height());
 
                 this.$itemView = new ItemView( );
-                this.$searchPanelView = new SearchPanelView( );
+                this.$searchPanelView = new SelectorView( );
 
                 var elmJSON = [
                     { name: 'div',
