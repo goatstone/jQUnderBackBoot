@@ -4,7 +4,7 @@ app.js
 
 define(["backbone", "./views/ItemView", "./views/SelectorView", "./views/HTML_ElView",
         "./views/ElementView", "element_config_model"],
-    function (Backbone, ItemView, SearchPanelView, HTML_ElView, ElementView, elementConfigModel) {
+    function (Backbone, ItemView, SelectorView, HTML_ElView, ElementView, elementConfigModel) {
 
         var App = Backbone.View.extend({
             el: $('body'),

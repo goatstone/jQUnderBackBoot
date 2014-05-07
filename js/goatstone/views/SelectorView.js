@@ -2,10 +2,36 @@
  * */
 
 define(["backbone",  "element_config_model" ], function (Backbone,  elementConfigModel ) {
+    var elmJSON = [
+        { name: 'div',
+            tag: '<div>'},
+        { name: 'span',
+            tag: '<span>'},
+        { name: 'p',
+            tag: '<p>'},
+        { name: 'h1',
+            tag: '<h1>'},
+        { name: 'h2',
+            tag: '<h2>'},
+        { name: 'h3',
+            tag: '<h3>'}
+    ];
+//    var Element = Backbone.Model.extend({
+//        defaults: {
+//            name: 'paragraph',
+//            tag: '<p>'
+//        }
+//    });
+//    var Elements = Backbone.Collection.extend({
+//        model: Element
+//    });
+//    var es = new Elements(elmJSON);
+//    this.$elementView = new ElementView({"collection": es });
 
     var SelectorView = Backbone.View.extend({
         el: $('#search_panel_view'),
         content: $('#spv_content'),
+        htmlElements : $(".html_elements"),
         events: {
             'click .set_it': 'setIt'
         },
@@ -15,6 +41,13 @@ define(["backbone",  "element_config_model" ], function (Backbone,  elementConfi
         offSetY: 0,
         initialize: function () {
             var $this = this;
+
+            _.each( this.htmlElements, function(element, index, list){
+
+                console.log(element+":"+ index +":"+ list)
+
+            });
+
             _.bindAll(this, 'render', 'move', 'setOffset', 'setIt');
 
             this.$queryInput = $(this.el).find('#user_input');
