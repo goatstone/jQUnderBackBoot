@@ -2,7 +2,7 @@
  * HTML_ElView.js
  * */
 
-define(["backbone", "element_config_model" ], function (Backbone,  elementConfigModel ) {
+define(["backbone", "element_config_model" ], function (Backbone, elementConfigModel) {
 
     var HTML_ElView = Backbone.View.extend({
         el: $('#html_el_view'),
@@ -22,7 +22,6 @@ define(["backbone", "element_config_model" ], function (Backbone,  elementConfig
             _.bindAll(this, 'render', 'setOffset', 'move', 'addToPage', 'onModelChange', 'generateHTML_EL');
 
             elementConfigModel.bind("change", this.onModelChange);
-            console.log(elementConfigModel.get("element"));
             this.generateHTML_EL();
 
         },
@@ -32,8 +31,6 @@ define(["backbone", "element_config_model" ], function (Backbone,  elementConfig
             this.generateHTML_EL();
         },
         generateHTML_EL: function () {
-            console.log(elementConfigModel.get("properties").backgroundColor);
-
             var tag = "";
             tag = $("<" + elementConfigModel.get("element") + ">");
             tag.text(elementConfigModel.get("properties").text);
@@ -48,7 +45,6 @@ define(["backbone", "element_config_model" ], function (Backbone,  elementConfig
 
         },
         addToPage: function () {
-            console.log("add to page");
             $("#main_display").append($(this.textArea).val());
         },
         setOffset: function (offSets) {
@@ -67,5 +63,5 @@ define(["backbone", "element_config_model" ], function (Backbone,  elementConfig
             return this;
         }
     });
-   return HTML_ElView;
+    return HTML_ElView;
 });

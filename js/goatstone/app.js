@@ -1,6 +1,6 @@
 /*
-app.js
-* */
+ app.js
+ * */
 
 define(["backbone", "./views/ItemView", "./views/SelectorView", "./views/HTML_ElView",
         "./views/ElementView", "element_config_model"],
@@ -20,19 +20,14 @@ define(["backbone", "./views/ItemView", "./views/SelectorView", "./views/HTML_El
 
                 _.bindAll(this, 'render', "onMouseUp",
                     "onMove", "onMouseDownItemView", "onMouseDownSearchPanelView",
-                      "onMouseDownHTML_ElView");
-
-                elementConfigModel.bind('change', function () {
-                    console.log("ecg app model changed !!!!!! ");
-                });
-                elementConfigModel.set("name", "G Model !!!");
+                    "onMouseDownHTML_ElView");
 
                 this.$display = $('#main_display');
                 this.$display.height($(document).height());
-                this.$itemView = new ItemView( );
-                this.$searchPanelView = new SelectorView( );
-                this.$hTML_ElView = new HTML_ElView( );
- 
+                this.$itemView = new ItemView();
+                this.$searchPanelView = new SelectorView();
+                this.$hTML_ElView = new HTML_ElView();
+
                 $(this.el).append(this.$itemView.render().el);
                 $(this.el).append(this.$searchPanelView.render().el);
                 $(this.el).append(this.$hTML_ElView.render().el);
@@ -44,9 +39,7 @@ define(["backbone", "./views/ItemView", "./views/SelectorView", "./views/HTML_El
                 this.selectedView.setOffset({x: e.clientX, y: e.clientY});
             },
             onMouseDownSearchPanelView: function (e) {
-                console.log(e.target.getAttribute("id"));
-                // TODO : bug, on select option, View moves into corner, next line fixes this
-                if (e.target.getAttribute("id") === "prop_select"){
+                if ($(e.target).is("select")) {
                     return;
                 }
                 this.selectedView = this.$searchPanelView;

@@ -18,14 +18,20 @@ define(["backbone", "element_config_model" ], function (Backbone, elementConfigM
             tag: '<h3>'}
     ];
 
-    var htmlElementProperies = ["Type", "Color", "Text", "Background Color"];
+    var elementProps = [
+        {label: "Type", value: "type"},
+        {label: "Color", value: "color"},
+        {label: "Text", value: "text"},
+        {label: "Background Color", value: "background_color"}
+    ];
 
     var SelectorView = Backbone.View.extend({
+
         el: $('#selector_view'),
         $htmlElements: $("#selector_view .html_elements"),
         $selectorModes: $("#selector_view .selector_modes"),
-        $queryInput : $('#selector_view .user_input'),
-        $selected_color : $("#selector_view .selected_color"),
+        $queryInput: $('#selector_view .user_input'),
+        $selectedColor: $("#selector_view .selected_color"),
 
         events: {
             'click .set_it': 'setIt'
@@ -37,21 +43,50 @@ define(["backbone", "element_config_model" ], function (Backbone, elementConfigM
         initialize: function () {
             var $this = this;
 
+            this.$selectorModes.bind("change", function (e) {
+                $this.setLayout($(this).val());
+            });
+            this.setLayout("type");
+
             // populate the select fields
             _.each(elmJSON, function (el, index, list) {
-                $($this.$htmlElements).append( $("<option>",
+                $($this.$htmlElements).append($("<option>",
                     {text: el.name}
-                ) )
+                ));
             });
-            _.each(htmlElementProperies, function (el, index, list) {
+            _.each(elementProps, function (el, index, list) {
                 var $li = $("<option>", {text: el.name});
-                $($this.$selectorModes).append($("<option>", {text: el}))
+                $this.$selectorModes.append($("<option>", {text: el.label, value: el.value}));
             });
 
-            _.bindAll(this, 'render', 'move', 'setOffset', 'setIt');
+            _.bindAll(this, 'render', 'move', 'setOffset', 'setIt', 'setLayout');
 
-            this.$queryInput.css({"background-color": "red"});
-
+        },
+        setLayout: function (layoutType) {
+            console.log(layoutType);
+            switch (layoutType) {
+                case "type":
+                    this.$queryInput.hide();
+                    this.$selectedColor.hide();
+                    this.$htmlElements.show();
+                    break;
+                case "text":
+                    this.$queryInput.show();
+                    this.$queryInput.focus();
+                    this.$selectedColor.hide();
+                    this.$htmlElements.hide();
+                    break;
+                case "color":
+                    this.$selectedColor.css({"display": "inline-block"});
+                    this.$queryInput.hide();
+                    this.$htmlElements.hide();
+                    break;
+                case "background_color":
+                    this.$selectedColor.css({"display": "inline-block"});
+                    this.$queryInput.hide();
+                    this.$htmlElements.hide();
+                    break;
+            }
         },
         setIt: function () {
             // set the value in the box to text, color, prop

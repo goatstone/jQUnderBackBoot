@@ -60,11 +60,24 @@ div.drag_drop {
 }
 
 #selector_view .selected_color {
-    display: inline-block;
+    display: none;
+    /*display: inline-block;*/
     width: 180px;
-    height: 30px;
+    height: 25px;
     background-color: #00f;
     color: "#f00";
+}
+
+#selector_view input.user_input {
+    display: none;
+}
+
+#selector_view .content_holder {
+    padding: 3px;
+    border: 1px solid #77f;
+    background-color: "red";
+    color: "red";
+    height: 30px;
 }
 
 /* item_view */
