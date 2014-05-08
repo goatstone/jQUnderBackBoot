@@ -24,19 +24,14 @@
 
 <div id="color_names"></div>
 
-<div id="item_view">
+<div id="item_view" class="drag_drop">
     <div class="content"></div>
 </div>
 
-<div id="elements_view"></div>
-
-<div id="selector_view">
+<div id="selector_view" class="drag_drop">
 
     <form>
         <select class="selector_modes">
-            <!--<option>Text</option>-->
-            <!--<option>Color</option>-->
-            <!--<option>Background Color</option>-->
         </select>
 
          <select class="html_elements">
@@ -47,7 +42,7 @@
         <input class="user_input" type="text" size="20" autocomplete="off">
 
         <br/>
-        <div class="selected_color"></div>
+        <span class="selected_color">xxx</span>
 
         <button type="button" class="set_it" value="Set It">Set it!</button>
     </form>
@@ -56,9 +51,10 @@
 
     <div id="m" class="message"></div>
     <span id="spv_content" class="message"></span>
+
 </div>
 
-<div id="html_el_view">
+<div id="html_el_view" class="drag_drop">
 
     <div id="hev_content"></div>
     <br/>

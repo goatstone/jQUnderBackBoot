@@ -1,7 +1,8 @@
 /* SearchPanelView.js
  * */
 
-define(["backbone",  "element_config_model" ], function (Backbone,  elementConfigModel ) {
+define(["backbone", "element_config_model" ], function (Backbone, elementConfigModel) {
+
     var elmJSON = [
         { name: 'div',
             tag: '<div>'},
@@ -16,41 +17,39 @@ define(["backbone",  "element_config_model" ], function (Backbone,  elementConfi
         { name: 'h3',
             tag: '<h3>'}
     ];
-//    var Element = Backbone.Model.extend({
-//        defaults: {
-//            name: 'paragraph',
-//            tag: '<p>'
-//        }
-//    });
-//    var Elements = Backbone.Collection.extend({
-//        model: Element
-//    });
-//    var es = new Elements(elmJSON);
-//    this.$elementView = new ElementView({"collection": es });
+
+    var htmlElementProperies = ["Type", "Color", "Text", "Background Color"];
 
     var SelectorView = Backbone.View.extend({
-        el: $('#search_panel_view'),
-        content: $('#spv_content'),
-        htmlElements : $(".html_elements"),
+        el: $('#selector_view'),
+        $htmlElements: $("#selector_view .html_elements"),
+        $selectorModes: $("#selector_view .selector_modes"),
+        $queryInput : $('#selector_view .user_input'),
+        $selected_color : $("#selector_view .selected_color"),
+
         events: {
             'click .set_it': 'setIt'
         },
-        x: 5,
-        y: 5,
+        x: 0,
+        y: 50,
         offSetX: 0,
         offSetY: 0,
         initialize: function () {
             var $this = this;
 
-            _.each( this.htmlElements, function(element, index, list){
-
-                console.log(element+":"+ index +":"+ list)
-
+            // populate the select fields
+            _.each(elmJSON, function (el, index, list) {
+                $($this.$htmlElements).append( $("<option>",
+                    {text: el.name}
+                ) )
+            });
+            _.each(htmlElementProperies, function (el, index, list) {
+                var $li = $("<option>", {text: el.name});
+                $($this.$selectorModes).append($("<option>", {text: el}))
             });
 
             _.bindAll(this, 'render', 'move', 'setOffset', 'setIt');
 
-            this.$queryInput = $(this.el).find('#user_input');
             this.$queryInput.css({"background-color": "red"});
 
         },

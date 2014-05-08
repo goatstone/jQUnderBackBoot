@@ -10,8 +10,7 @@ define(["backbone", "./views/ItemView", "./views/SelectorView", "./views/HTML_El
             el: $('body'),
             events: {
                 'mousedown #item_view': 'onMouseDownItemView',
-                'mousedown #search_panel_view': 'onMouseDownSearchPanelView',
-                'mousedown #elements_view': 'onMouseDownElementsView',
+                'mousedown #selector_view': 'onMouseDownSearchPanelView',
                 'mousedown #html_el_view': 'onMouseDownHTML_ElView',
                 'mousemove': 'onMove',
                 'mouseup': 'onMouseUp'
@@ -21,61 +20,27 @@ define(["backbone", "./views/ItemView", "./views/SelectorView", "./views/HTML_El
 
                 _.bindAll(this, 'render', "onMouseUp",
                     "onMove", "onMouseDownItemView", "onMouseDownSearchPanelView",
-                    "onMouseDownElementsView", "onMouseDownHTML_ElView");
+                      "onMouseDownHTML_ElView");
 
                 elementConfigModel.bind('change', function () {
                     console.log("ecg app model changed !!!!!! ");
                 });
                 elementConfigModel.set("name", "G Model !!!");
 
-
                 this.$display = $('#main_display');
                 this.$display.height($(document).height());
-
                 this.$itemView = new ItemView( );
                 this.$searchPanelView = new SelectorView( );
-
-                var elmJSON = [
-                    { name: 'div',
-                        tag: '<div>'},
-                    { name: 'span',
-                        tag: '<span>'},
-                    { name: 'p',
-                        tag: '<p>'},
-                    { name: 'h1',
-                        tag: '<h1>'},
-                    { name: 'h2',
-                        tag: '<h2>'},
-                    { name: 'h3',
-                        tag: '<h3>'}
-                ];
-                var Element = Backbone.Model.extend({
-                    defaults: {
-                        name: 'paragraph',
-                        tag: '<p>'
-                    }
-                });
-                var Elements = Backbone.Collection.extend({
-                    model: Element
-                });
-                var es = new Elements(elmJSON);
-                this.$elementView = new ElementView({"collection": es });
-
                 this.$hTML_ElView = new HTML_ElView( );
  
                 $(this.el).append(this.$itemView.render().el);
                 $(this.el).append(this.$searchPanelView.render().el);
-                $(this.el).append(this.$elementView.render().el);
                 $(this.el).append(this.$hTML_ElView.render().el);
 
             },
             onMouseDownHTML_ElView: function (e) {
                 console.log("onMouseDownHTML_ElView");
                 this.selectedView = this.$hTML_ElView;
-                this.selectedView.setOffset({x: e.clientX, y: e.clientY});
-            },
-            onMouseDownElementsView: function (e) {
-                this.selectedView = this.$elementView;
                 this.selectedView.setOffset({x: e.clientX, y: e.clientY});
             },
             onMouseDownSearchPanelView: function (e) {
