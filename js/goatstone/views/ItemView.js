@@ -34,12 +34,14 @@ define(["backbone", "element_config_model" ], function (Backbone, elementConfigM
         },
         render: function () {
             var str =
-                "Selection Mode: " + elementConfigModel.get("selectionMode") + "<br> " +
-                "Element: " + elementConfigModel.get("element") + "<br> " +
-                "Property: " + elementConfigModel.get("property") + "<br> " +
-                "Value: " + elementConfigModel.get("value") + "<br> " +
+                "Type: " + elementConfigModel.get("type") + "<br> " +
+                "Text: " + elementConfigModel.get("text") + "<br> " +
+                "Color: " + elementConfigModel.get("color") + "<br> " +
+                "BG Color: " + elementConfigModel.get("background-color") + "<br> ";
 
-                "text . . .: " + elementConfigModel.get("properties").text + "<br> ";
+
+//                "Property: " + elementConfigModel.get("property") + "<br> " +
+//                "Value: " + elementConfigModel.get("value") + "<br> " +
 
             $(this.el).html('<span>' + str + '</span>')
                 .css({ top: this.y, left: this.x});

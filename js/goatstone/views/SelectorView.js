@@ -22,7 +22,7 @@ define(["backbone", "element_config_model" ], function (Backbone, elementConfigM
         {label: "Type", value: "type"},
         {label: "Color", value: "color"},
         {label: "Text", value: "text"},
-        {label: "Background Color", value: "background_color"}
+        {label: "Background Color", value: "background-color"}
     ];
 
     var SelectorView = Backbone.View.extend({
@@ -34,7 +34,7 @@ define(["backbone", "element_config_model" ], function (Backbone, elementConfigM
         $selectedColor: $("#selector_view .selected_color"),
 
         events: {
-            'click .set_it': 'setIt'
+            'click .set_it': 'setElementConfigModel'
         },
         x: 0,
         y: 50,
@@ -59,11 +59,11 @@ define(["backbone", "element_config_model" ], function (Backbone, elementConfigM
                 $this.$selectorModes.append($("<option>", {text: el.label, value: el.value}));
             });
 
-            _.bindAll(this, 'render', 'move', 'setOffset', 'setIt', 'setLayout');
+            _.bindAll(this, 'render', 'move', 'setOffset', 'setElementConfigModel', 'setLayout');
 
         },
+        // TODO use a $selectedTypeElementValue, $selectedTypeElementKey
         setLayout: function (layoutType) {
-            console.log(layoutType);
             switch (layoutType) {
                 case "type":
                     this.$queryInput.hide();
@@ -81,26 +81,33 @@ define(["backbone", "element_config_model" ], function (Backbone, elementConfigM
                     this.$queryInput.hide();
                     this.$htmlElements.hide();
                     break;
-                case "background_color":
+                case "background-color":
                     this.$selectedColor.css({"display": "inline-block"});
                     this.$queryInput.hide();
                     this.$htmlElements.hide();
                     break;
             }
         },
-        setIt: function () {
-            // set the value in the box to text, color, prop
-            if (this.$queryInput.val() !== "") {
-                var a = elementConfigModel.get("properties");
-                a.text = this.$queryInput.val();
-                elementConfigModel.set("properties", a); // TODO this does not trigger the update
-                elementConfigModel.set("dummyProp", new Date()); // TODO : should not need this, ensure the change is triggered
-            }
-            this.$queryInput.focus();
 
-        },
-        selectMode: function (e) {
-            elementConfigModel.set("selectionMode", e.target.value);
+        setElementConfigModel: function () {
+
+            var selectMode = this.$selectorModes.val();
+
+            switch (selectMode) {
+                case "type":
+                    elementConfigModel.set(this.$selectorModes.val(), this.$htmlElements.val());
+                    break;
+                case "text":
+                    elementConfigModel.set(this.$selectorModes.val(), this.$queryInput.val());
+                    break;
+                case "color":
+                    elementConfigModel.set(this.$selectorModes.val(), "blue");
+                    break;
+                case "background-color":
+                    elementConfigModel.set(this.$selectorModes.val(), "black");
+                    break;
+            }
+
         },
         setOffset: function (offSets) {
             this.offSetX = offSets.x - this.x;

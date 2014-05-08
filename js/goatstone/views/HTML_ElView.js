@@ -32,11 +32,11 @@ define(["backbone", "element_config_model" ], function (Backbone, elementConfigM
         },
         generateHTML_EL: function () {
             var tag = "";
-            tag = $("<" + elementConfigModel.get("element") + ">");
-            tag.text(elementConfigModel.get("properties").text);
+            tag = $("<" + elementConfigModel.get("type") + ">");
+            tag.text(elementConfigModel.get("text") );
             tag.css({
-                "color": (elementConfigModel.get("properties").color),
-                "background-color": elementConfigModel.get("properties").backgroundColor,
+                "color": (elementConfigModel.get("color") ),
+                "background-color": elementConfigModel.get("background-color") ,
                 "margin": "0"
             });
 

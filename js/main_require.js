@@ -25,29 +25,29 @@ require.config({
 require(['jquery', 'underscore', 'backbone', 'goatstone/app'], function(jquery, _, Backbone, App){
 
     //    console.log(G)
-    var ElementConfigModel = Backbone.Model.extend({
-        defaults: {
-            name: "Shared Info",
-            selectionMode: "element",
-            element: "div",
-            property: "color",
-            properties:
-            {"color": "green", "backgroundColor": "red", "text": "hello el" },
-            value: "red",
-            text: "hello html",
-            dummyProp:0
-        }
-    });
-
-    var List = Backbone.Collection.extend({
-        model: ElementConfigModel
-    });
-
-    var elementConfigModel = new ElementConfigModel();
-    elementConfigModel.set("name", "G Model !!!")
-    elementConfigModel.bind('change', function () {
-        console.log("G model changed !!!!!! ")
-    })
+//    var ElementConfigModel = Backbone.Model.extend({
+//        defaults: {
+//            name: "Shared Info",
+//            selectionMode: "element",
+//            element: "div",
+//            property: "color",
+//            properties:
+//            {"color": "green", "backgroundColor": "red", "text": "hello el" },
+//            value: "red",
+//            text: "hello html",
+//            dummyProp:0
+//        }
+//    });
+//
+//    var List = Backbone.Collection.extend({
+//        model: ElementConfigModel
+//    });
+//
+//    var elementConfigModel = new ElementConfigModel();
+//    elementConfigModel.set("name", "G Model !!!")
+//    elementConfigModel.bind('change', function () {
+//        console.log("G model changed !!!!!! ")
+//    })
 
     new App( );
 });
